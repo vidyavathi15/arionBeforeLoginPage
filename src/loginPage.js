@@ -10,8 +10,12 @@ import {TextField} from '@mui/material'
         const userDetails = {phoneNbr, otp}
         console.log(phoneNbr, otp)
         const options={
-            method:"POST", 
-            body:userDetails
+            method:"POST",
+         headers:{
+          'Content-type': "application/json"
+         },
+         
+            body:JSON.stringify(userDetails)
         }
         
         const res = await fetch("https://admin.gifinfinity.com/accounts/api/client/v1/user-otp-login/", options)
